@@ -20,7 +20,7 @@ mixin _Server_env {
 mixin _Server_host {
   static const custom = dev;
 
-  static const dev = 'http://api.tianapi.com/';
+  static const dev = 'https://vhh.smbyyjs.com/';
   static const test = 'http://api.tianapi.com/';
   static const production = 'http://api.tianapi.com/';
 }
@@ -29,11 +29,20 @@ mixin _Server_host {
 mixin _Server_h5 {
   static const custom = dev;
 
-  static const dev = 'http://192.168.1.1';
+  static const dev = 'http://h5dev.ccsh.com/';
   static const test = 'http://h5test.ccsh.com/';
   static const production = 'http://h5pro.ccsh.com/';
 }
 
+// MARK 接口
+class Api {
+  // 每日简报
+  static const String bulletin = 'bulletin/index';
+  // 首页
+  static const String WechatIndex = 'api/UsersGoods/wechatIndex';
+}
+
+// MARK 配置
 class Config {
   //超时
   static const timeOut = 15000;
@@ -67,9 +76,4 @@ class Config {
         return _Server_h5.custom;
     }
   }
-}
-
-class Api {
-  // 每日简报
-  static const String bulletin = 'bulletin/index';
 }

@@ -1,11 +1,4 @@
-//  @Description: GlobalKey拓展
-//  @Author: 陈胜辉
-//  @Date: 2019-12-26 15:37:34
-//  @Version: 版本号, YYYY-MM-DD
-//  @LastEditors: 陈胜辉
-//  @LastEditTime: 2019-12-26 16:07:28
-//  @Deprecated: 否
-//  备注
+// @dart=2.9
 import 'package:flutter/material.dart';
 
 extension SHExtension on GlobalKey {

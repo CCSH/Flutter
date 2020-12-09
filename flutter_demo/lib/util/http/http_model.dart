@@ -1,33 +1,23 @@
+// @dart=2.9
 //状态模型类
 import 'package:dio/dio.dart';
 
-// 自定义拦截器拦截处理
-// 接口返回数据模型
-class ResultModel {
-  // 状态码
-  final ResultCode code;
-  // 成功加载数据
-  final Map<dynamic, dynamic> data;
-
-  ResultModel(this.code, this.data);
-}
-
 // 根据返回封装的数据模型
 class DataModel {
-  final int code;
+  final String result;
   final String msg;
   dynamic data;
 
   DataModel({
-    this.code,
+    this.result,
     this.msg,
     this.data,
   });
 
   //TODO 工厂方法JSON转换模型对象
-  factory DataModel.fromJson(Map<dynamic, dynamic> json) {
+  factory DataModel.fromJson(Map<String, dynamic> json) {
     return DataModel(
-      code: json['code'],
+      result: json['result'],
       msg: json['msg'],
       data: json['data'],
     );
@@ -47,19 +37,17 @@ enum ResultCode {
 // 状态码
 class StatusCode {
   //正常返回
-  static const success = 200;
-  //内部服务器错误
-  static const error = 100;
-  // 接口暂时关闭维护中
-  static const close = 110;
-  // IP请求来源受限
-  static const limited = 120;
-  // API调用频率超限
-  static const frequency = 130;
+  static const success = '0';
+  //内部服务器错误(数据库异常、等)
+  static const error = '100';
 
   /* ----- 业务错误码 ----- */
+  //没数据
+  static const no_data = '2';
   // key错误或为空
-  static const key_error = 230;
+  static const key_error = '230';
   // 缺少key参数
-  static const key_no = 240;
+  static const key_no = '240';
+  //用户未登录
+  static const login = '250';
 }

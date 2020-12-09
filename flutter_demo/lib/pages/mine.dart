@@ -11,7 +11,7 @@ import 'package:flutter_demo/widgets/custom_appbar.dart';
 //  @Date: 2020-12-07 14:43:04
 //  @Version: 版本号, YYYY-MM-DD
 //  @LastEditors: 陈胜辉
-//  @LastEditTime: 2020-12-08 09:12:29
+//  @LastEditTime: 2020-12-08 09:20:26
 //  @Deprecated: 否
 //  备注
 class MinePage extends StatefulWidget {
@@ -145,7 +145,7 @@ class _MinePageState extends State<MinePage> {
                 textColor: Colors.white,
                 child: Text('请求'),
                 onPressed: () {
-                  Interface.bulletin()
+                  Interface.homeList()
                     ..then((value) {
                       print('界面接收到数据');
                       print(value);

@@ -1,11 +1,4 @@
-//  @Description: String拓展
-//  @Author: 陈胜辉
-//  @Date: 2019-12-18 09:52:25
-//  @Version: 版本号, YYYY-MM-DD
-//  @LastEditors: 陈胜辉
-//  @LastEditTime: 2019-12-18 13:06:42
-//  @Deprecated: 否
-//  备注
+// @dart=2.9
 import 'dart:convert';
 import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';

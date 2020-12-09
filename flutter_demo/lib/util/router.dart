@@ -11,7 +11,6 @@ import 'package:flutter_demo/pages/home.dart';
 import 'package:flutter_demo/pages/login.dart';
 import 'package:flutter_demo/pages/root.dart';
 import 'dart:convert' as convert;
-
 import 'package:flutter_demo/util/toast_util.dart';
 
 typedef _CallBack = void Function(dynamic result);
@@ -33,8 +32,9 @@ class RouterUtil {
       replace: replace,
       clearStack: clearStack,
     )..then((value) {
-        print("rooter value: $value");
-        block(value);
+        if (block != null) {
+          block(value);
+        }
       });
   }
 
@@ -69,7 +69,7 @@ class RouterUtil {
 
   // MARK 处理出参
   static Map getRouterParams(Map params) {
-    if (null == params || params.length == 0) {
+    if (params.length == 0) {
       return {};
     }
     Map temp = {};
@@ -124,8 +124,9 @@ class Routes {
   static void configRoutes() {
     var router = FluroRouter.appRouter;
     router.notFoundHandler =
-        new Handler(handlerFunc: (BuildContext context, Map params) {
+        Handler(handlerFunc: (BuildContext context, Map params) {
       showToast("route is not find !");
+      return null;
     });
 
     // 注册路由

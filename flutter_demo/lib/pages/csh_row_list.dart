@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/util/data_helper.dart';
 import 'package:flutter_demo/extension/sh_extension_color.dart';

@@ -1,12 +1,4 @@
-//  @Description: 自定义组件
-//  @Author: 陈胜辉
-//  @Date: 2019-12-05 08:37:35
-//  @Version: 版本号, YYYY-MM-DD
-//  @LastEditors: 陈胜辉
-//  @LastEditTime: 2019-12-05 08:38:46
-//  @Deprecated: 否
-//  备注
-
+// @dart=2.9
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';

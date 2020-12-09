@@ -34,10 +34,4 @@ class CommonData {
 
   /// 导航栏高度
   static final double navH = 44.0;
-
-  /// 是否是iOS平台
-  static final bool isIOS = (Platform.isIOS);
-
-  /// 是否是安卓平台
-  static final bool isAndroid = (Platform.isAndroid);
 }

@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_demo/util/router.dart';
@@ -8,9 +7,9 @@ import 'package:fluro/fluro.dart';
 void main() {
   if (Platform.isAndroid) {
     // 沉浸式状态栏
-    SystemUiOverlayStyle systemUiOverlayStyle =
+    SystemUiOverlayStyle style =
         SystemUiOverlayStyle(statusBarColor: Colors.transparent);
-    SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+    SystemChrome.setSystemUIOverlayStyle(style);
   }
   runApp(Main());
 }

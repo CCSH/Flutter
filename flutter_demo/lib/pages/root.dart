@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/pages/home.dart';
@@ -18,8 +19,8 @@ class _RootPageState extends State<RootPage> {
     super.initState();
     pages.addAll([
       HomePage(),
-      MinePage(),
       LoginPage(),
+      MinePage(),
     ]);
   }
 
@@ -44,7 +45,7 @@ class _RootPageState extends State<RootPage> {
                 Icons.add,
                 size: 30,
               ),
-              label: '登录',
+              label: '练习',
             ),
             BottomNavigationBarItem(
               icon: Icon(
