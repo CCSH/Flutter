@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class SHSectionHeadConfig {
+class SHWidgetFixed {
   //悬浮组件key集合
   List<GlobalKey> keyList = [];
   //列表滚动方向

@@ -6,11 +6,11 @@ import 'package:flutter/services.dart';
 import 'dart:ui';
 import 'dart:async';
 
-import 'package:flutter_app/util/focusNode_helper.dart';
-import 'package:flutter_app/util/time_helper.dart';
+import 'package:flutter_app/util/helper_focus.dart';
+import 'package:flutter_app/util/helper_time.dart';
 import 'package:flutter_app/util/router.dart';
 import 'package:flutter_app/util/toast_util.dart';
-import 'package:flutter_app/util/tool_helper.dart';
+import 'package:flutter_app/util/helper_tool.dart';
 
 enum TextFieldType {
   phone,
@@ -18,20 +18,18 @@ enum TextFieldType {
   password,
 }
 
-class LoginPage extends StatefulWidget {
+class RegPage extends StatefulWidget {
   final param;
-  final title;
-  LoginPage({
+  RegPage({
     Key key,
-    this.title,
     this.param,
   }) : super(key: key);
 
   @override
-  _LoginPage createState() => _LoginPage();
+  _RegPage createState() => _RegPage();
 }
 
-class _LoginPage extends State<LoginPage> {
+class _RegPage extends State<RegPage> {
   bool isAppear = false;
   //输入框显示内容
   TextEditingController phoneTextC = TextEditingController();
@@ -51,7 +49,7 @@ class _LoginPage extends State<LoginPage> {
   @override
   void initState() {
     super.initState();
-    showToast('参数来了 ===' + widget.param);
+    showToast('参数来了 ===' + widget.param['param']);
   }
 
   @override
@@ -125,6 +123,8 @@ class _LoginPage extends State<LoginPage> {
         backgroundColor: Colors.white,
         //隐藏线
         elevation: 0,
+        //状态栏颜色
+        brightness: Brightness.dark,
         //返回按钮
         leading: GestureDetector(
           child: Image.asset(Tool.getImage('nav_back')),
@@ -144,7 +144,7 @@ class _LoginPage extends State<LoginPage> {
                   color: Color.fromRGBO(54, 90, 247, 1),
                 ),
               ),
-              onTap: actionGotoLoginPage,
+              onTap: actionGotoRegPage,
             ),
           )
         ],
@@ -603,7 +603,7 @@ class _LoginPage extends State<LoginPage> {
 
     RouterUtil.pop(
       context,
-      '我回来啦！！！',
+      param: '我回来啦！！！',
     );
 
     // RouterUtil.popToRouter(
@@ -619,12 +619,12 @@ class _LoginPage extends State<LoginPage> {
    * @return: 
    * @Deprecated: 否
    */
-  void actionGotoLoginPage() {
+  void actionGotoRegPage() {
     print('进入登录页面');
     actionTouchBegin();
     RouterUtil.navigateTo(
       context,
-      RouteName.login + RouterUtil.setRouterParams({'currentIndex': 2}),
+      RouteName.root + RouterUtil.setRouterParams({'currentIndex': 2}),
       transType: TransitionType.inFromLeft,
     );
   }

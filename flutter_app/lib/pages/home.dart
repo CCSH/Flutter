@@ -1,128 +1,152 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/util/data_helper.dart';
-import 'package:flutter_app/extension/sh_extension_globalkey.dart';
-import 'package:flutter_app/util/scction_head_helper.dart';
-import 'package:flutter_app/widgets/custom_appbar.dart';
+import 'package:flutter_app/util/http/http_interface.dart';
+import 'package:flutter_app/util/http/http_model.dart';
+import 'package:flutter_app/util/router.dart';
+import 'package:flutter_app/util/toast_util.dart';
+import 'package:flutter_app/widgets/widget_appbar.dart';
 
-// ignore: must_be_immutable
 class HomePage extends StatefulWidget {
-  HomePage({
-    this.params,
-  }) : super();
-
-  //参数
-  Map params;
-
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  ScrollController _listScrollC = ScrollController();
-  SHSectionHeadConfig config = SHSectionHeadConfig();
-
-  @override
-  void initState() {
-    super.initState();
-
-    //初始化model
-    config.keyList = [
-      GlobalKey(debugLabel: '1'),
-      GlobalKey(debugLabel: '9'),
-      GlobalKey(debugLabel: '20'),
-      GlobalKey(debugLabel: '30'),
-    ];
-    config.position = CommonData.navAndStatusH;
-
-    _listScrollC.addListener(() {
-      if (config.handleData()) {
-        setState(() {});
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
-        appBar: CustomAppBar(
-          // Here we take the value from the MyHomePage object that was created by
-          // the App.build method, and use it to set our appbar title.
-          middleText: '列悬浮',
-        ),
-        body: Stack(
-          children: <Widget>[
-            ListView.builder(
-              controller: _listScrollC,
-              itemBuilder: (BuildContext context, int index) {
-                for (var i = 0; i < config.keyList.length; i++) {
-                  GlobalKey key = config.keyList[i];
-                  if (key.debugLabel() == index.toString()) {
-                    //设置头部
-                    return getHeadView(i, key);
-                  }
-                }
-                //设置内容
-                return Container(
-                  color: Colors.orange,
+      appBar: CustomAppBar(
+        defaultLeft: false,
+        middleText: '陈胜辉',
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          alignment: Alignment.center,
+          margin: EdgeInsets.only(top: 50),
+          color: Colors.white,
+          child: Column(
+            children: <Widget>[
+              CupertinoButton(
+                padding: const EdgeInsets.all(0),
+                borderRadius: BorderRadius.circular(0),
+                pressedOpacity: 0.8,
+                color: Colors.blue,
+                minSize: 0,
+                child: Container(
+                  width: 90,
+                  height: 35,
                   alignment: Alignment.center,
                   child: Text(
-                    '我是第 --- $index',
+                    '注册页',
                     style: TextStyle(
-                      fontSize: 40,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
-                );
-              },
-              itemCount: 50,
-            ),
-            handleHead(),
-          ],
-        ));
-  }
-
-  /// MARK:处理悬浮头部
-  //  @LastEditors: 陈胜辉
-  //  @Version: 版本号, YYYY-MM-DD
-  //  @param {type}
-  //  @return:
-  //  @Deprecated: 否
-  //  备注
-  Widget handleHead() {
-    //需要悬浮
-    if (config.currentIndex >= 0) {
-      return Positioned(
-        top: config.offset,
-        child: getHeadView(config.currentIndex, null),
-      );
-    }
-
-    return Container();
-  }
-
-  /// MARK:获取头部组件
-  //  @LastEditors: 陈胜辉
-  //  @Version: 版本号, YYYY-MM-DD
-  //  @param {type}
-  //  @return:
-  //  @Deprecated: 否
-  //  备注
-  Widget getHeadView(int index, Key key) {
-    return Container(
-      key: key,
-      height: 90,
-      width: CommonData.screenW,
-      color: Colors.cyan,
-      alignment: Alignment.center,
-      child: Text(
-        '我是head === $index',
-        style: TextStyle(
-          fontSize: 20,
+                ),
+                onPressed: () {
+                  RouterUtil.navigateTo(
+                    context,
+                    RouteName.registered,
+                    params: {
+                      'param': '1234',
+                      'title': '标题',
+                    },
+                    block: ((value) {
+                      if (value != null) {
+                        showToast(value);
+                      }
+                    }),
+                  );
+                },
+              ),
+              FlatButton(
+                color: Colors.blue,
+                textColor: Colors.white,
+                child: Text('导航栏'),
+                onPressed: () {
+                  RouterUtil.navigateTo(context, RouteName.cshNav);
+                },
+              ),
+              MaterialButton(
+                color: Colors.blue,
+                textColor: Colors.white,
+                child: Text('调用原生view'),
+                onPressed: () {
+                  RouterUtil.navigateTo(context, RouteName.cshLayout);
+                },
+              ),
+              MaterialButton(
+                color: Colors.blue,
+                textColor: Colors.white,
+                child: Text('动画'),
+                onPressed: () {
+                  RouterUtil.navigateTo(context, RouteName.cshAnimated);
+                },
+              ),
+              MaterialButton(
+                color: Colors.blue,
+                textColor: Colors.white,
+                child: Text('列悬浮'),
+                onPressed: () {
+                  RouterUtil.navigateTo(context, RouteName.cshColumnList);
+                },
+              ),
+              MaterialButton(
+                color: Colors.blue,
+                textColor: Colors.white,
+                child: Text('行悬浮'),
+                onPressed: () {
+                  RouterUtil.navigateTo(context, RouteName.cshRowList);
+                },
+              ),
+              MaterialButton(
+                color: Colors.blue,
+                textColor: Colors.white,
+                child: Text('自定义标签页'),
+                onPressed: () {
+                  RouterUtil.navigateTo(context, RouteName.cshTable);
+                },
+              ),
+              MaterialButton(
+                color: Colors.blue,
+                textColor: Colors.white,
+                child: Text('分页'),
+                onPressed: () {
+                  RouterUtil.navigateTo(context, RouteName.cshPaging);
+                },
+              ),
+              MaterialButton(
+                color: Colors.blue,
+                textColor: Colors.white,
+                child: Text('界面周期'),
+                onPressed: () {
+                  RouterUtil.navigateTo(context, RouteName.cshCycle);
+                },
+              ),
+              MaterialButton(
+                color: Colors.blue,
+                textColor: Colors.white,
+                child: Text('请求'),
+                onPressed: () {
+                  Interface.homeList()
+                    ..then((DataModel value) {
+                      if (value.data != null) {
+                        showToast('收到数据');
+                      }
+                    });
+                },
+              ),
+              MaterialButton(
+                color: Colors.blue,
+                textColor: Colors.white,
+                child: Text('加载'),
+                onPressed: () {
+                  RouterUtil.navigateTo(context, RouteName.load);
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

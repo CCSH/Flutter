@@ -2,7 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/util/data_helper.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_app/util/helper_data.dart';
 import 'package:flutter_app/util/router.dart';
 // import 'package:flutter_app/util/routerUtil.dart';
 
@@ -19,6 +20,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.height,
     this.defaultLeft = true,
     this.opacity = 1.0,
+    this.brightness = SystemUiOverlayStyle.light,
     this.sapce = 5.0,
     this.middleText = '',
     this.middle,
@@ -31,6 +33,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             '导航栏高度最小为${CommonData.navAndStatusH}'),
         super(key: key);
 
+  //状态栏文字样式
+  SystemUiOverlayStyle brightness;
   //高度
   final double height;
   //默认左侧按钮
@@ -120,52 +124,55 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     // 返回组件
     return Opacity(
       opacity: _opacity,
-      child: Stack(
-        children: <Widget>[
-          //底部背景
-          Container(
-            height: this.preferredSize.height,
-            child: _background,
-          ),
-
-          //上方内容
-          Container(
-            height: CommonData.navH,
-            margin: EdgeInsets.only(
-              top: this.preferredSize.height - CommonData.navH,
-              left: this.sapce,
-              right: this.sapce,
+      child: AnnotatedRegion<SystemUiOverlayStyle>(
+        child: Stack(
+          children: <Widget>[
+            //底部背景
+            Container(
+              height: this.preferredSize.height,
+              child: _background,
             ),
-            child: Row(
-              children: <Widget>[
-                //左边
-                Container(
-                  width: _actionsMaxW,
-                  child: (null == _leftActions)
-                      ? null
-                      : Row(
-                          children: _leftActions,
-                        ),
-                ),
 
-                //中间视图
-                Expanded(
-                  child: _middle,
-                ),
+            //上方内容
+            Container(
+              height: CommonData.navH,
+              margin: EdgeInsets.only(
+                top: this.preferredSize.height - CommonData.navH,
+                left: this.sapce,
+                right: this.sapce,
+              ),
+              child: Row(
+                children: <Widget>[
+                  //左边
+                  Container(
+                    width: _actionsMaxW,
+                    child: (null == _leftActions)
+                        ? null
+                        : Row(
+                            children: _leftActions,
+                          ),
+                  ),
 
-                //右边
-                Container(
-                  width: _actionsMaxW,
-                  child: (null == rightActions)
-                      ? null
-                      : Row(
-                          children: rightActions,
-                        ),
-                ),
-              ],
+                  //中间视图
+                  Expanded(
+                    child: _middle,
+                  ),
+
+                  //右边
+                  Container(
+                    width: _actionsMaxW,
+                    child: (null == rightActions)
+                        ? null
+                        : Row(
+                            children: rightActions,
+                          ),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
+        value: this.brightness,
       ),
     );
   }

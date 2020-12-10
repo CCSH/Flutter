@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/util/data_helper.dart';
+import 'package:flutter_app/util/helper_data.dart';
 import 'package:flutter_app/extension/sh_extension_color.dart';
 import 'package:flutter_app/extension/sh_extension_globalkey.dart';
-import 'package:flutter_app/util/scction_head_helper.dart';
+import 'package:flutter_app/widgets/widget_fixed.dart';
 import 'package:flutter_app/extension/sh_extension_globalkey.dart';
 
 class CSHRowList extends StatefulWidget {
@@ -12,7 +12,7 @@ class CSHRowList extends StatefulWidget {
 
 class _CSHListState extends State<CSHRowList> {
   ScrollController _listScrollC = ScrollController();
-  SHSectionHeadConfig config = SHSectionHeadConfig();
+  SHWidgetFixed config = SHWidgetFixed();
   // List headList = [1, 9, 20, 30];
 
   @override

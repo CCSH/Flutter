@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/util/data_helper.dart';
+import 'package:flutter_app/util/helper_data.dart';
 import 'package:flutter_app/extension/sh_extension_globalkey.dart';
-import 'package:flutter_app/widgets/custom_appbar.dart';
-import 'package:flutter_app/util/scction_head_helper.dart';
+import 'package:flutter_app/widgets/widget_appbar.dart';
+import 'package:flutter_app/widgets/widget_fixed.dart';
 
 class CSHColumnList extends StatefulWidget {
   @override
@@ -11,7 +11,7 @@ class CSHColumnList extends StatefulWidget {
 
 class _CSHListState extends State<CSHColumnList> {
   ScrollController _listScrollC = ScrollController();
-  SHSectionHeadConfig config = SHSectionHeadConfig();
+  SHWidgetFixed config = SHWidgetFixed();
 
   @override
   void initState() {

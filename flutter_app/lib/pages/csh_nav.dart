@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/widgets/custom_appbar.dart';
+import 'package:flutter_app/widgets/widget_appbar.dart';
 import 'dart:ui';
 
 class CSHNav extends StatefulWidget {
@@ -69,6 +69,7 @@ class _CSHNavState extends State<CSHNav> {
 
     return CustomAppBar(
       opacity: opacity,
+
       middleText: '我是导航栏',
       // height: CommonData.navH,
       // middle: Container(

@@ -1,6 +1,4 @@
-import 'dart:ffi';
 import 'dart:ui';
-import 'dart:io';
 import 'package:flutter/cupertino.dart';
 
 class CommonData {

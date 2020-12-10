@@ -1,14 +1,18 @@
 import 'package:flutter_app/extension/sh_extension_string.dart';
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
+import 'package:flutter_app/pages/android.dart';
 import 'package:flutter_app/pages/csh_animated.dart';
 import 'package:flutter_app/pages/csh_column_list.dart';
 import 'package:flutter_app/pages/csh_cycle.dart';
 import 'package:flutter_app/pages/csh_nav.dart';
 import 'package:flutter_app/pages/csh_paging.dart';
 import 'package:flutter_app/pages/csh_row_list.dart';
+import 'package:flutter_app/pages/csh_table.dart';
 import 'package:flutter_app/pages/home.dart';
-import 'package:flutter_app/pages/login.dart';
+import 'package:flutter_app/pages/ios.dart';
+import 'package:flutter_app/pages/load.dart';
+import 'package:flutter_app/pages/reg.dart';
 import 'package:flutter_app/pages/root.dart';
 import 'dart:convert' as convert;
 import 'package:flutter_app/util/toast_util.dart';
@@ -21,10 +25,15 @@ class RouterUtil {
 
   // MARK 跳转到指定页面
   static navigateTo(BuildContext context, String url,
-      {bool replace = false,
+      {Map params,
+      bool replace = false,
       bool clearStack = false,
       TransitionType transType = TransitionType.inFromRight,
       _CallBack block}) {
+    //有参数
+    if (params != null) {
+      url += RouterUtil.setRouterParams(params);
+    }
     FluroRouter.appRouter.navigateTo(
       context,
       url,
@@ -39,7 +48,7 @@ class RouterUtil {
   }
 
   // MARK 返回上一个页面
-  static Future<bool> pop(BuildContext context, [dynamic param]) {
+  static Future<bool> pop(BuildContext context, {dynamic param}) {
     return Navigator.maybePop(context, param);
   }
 
@@ -91,9 +100,13 @@ class RouteName {
   static const String root = '/';
   // 主页
   static const String home = '/home';
-  // 登录
-  static const String login = '/login';
+  // ios
+  static const String ios = '/ios';
+  // 安卓
+  static const String android = '/android';
 
+  // 注册
+  static const String registered = '/registered';
   // 界面周期页面 - csh
   static String cshPage = '/csh_page';
   // 注册页面 - csh
@@ -112,10 +125,10 @@ class RouteName {
   static String cshTable = '/csh_table';
   // 分页页面 - csh
   static String cshPaging = '/csh_paging';
-  // 二维码页面 - csh
-  static String cshQr = '/csh_qr';
   // 界面周期页面 - csh
   static String cshCycle = '/csh_cycle';
+  // 加载
+  static String load = '/load';
 }
 
 // MARK 路由设置
@@ -138,15 +151,14 @@ class Routes {
   // MARK 路由列表
   static Map getRoutList() {
     return {
-      RouteName.root: (context, params) {
-        return RootPage();
-      },
+      RouteName.root: (context, params) => RootPage(),
       RouteName.home: (context, params) => HomePage(),
-      RouteName.login: (context, params) {
+      RouteName.ios: (context, params) => IOSPage(),
+      RouteName.android: (context, params) => AndroidPage(),
+      RouteName.registered: (context, params) {
         Map param = RouterUtil.getRouterParams(params);
-        return LoginPage(
-          param: param['param'],
-          title: params['title'],
+        return RegPage(
+          param: param,
         );
       },
       RouteName.cshNav: (context, params) => CSHNav(),
@@ -155,6 +167,8 @@ class Routes {
       RouteName.cshRowList: (conttext, params) => CSHRowList(),
       RouteName.cshPaging: (conttext, params) => CSHPaging(),
       RouteName.cshCycle: (conttext, params) => CSHCycle(),
+      RouteName.load: (conttext, params) => MyStatefulWidget(),
+      RouteName.cshTable: (conttext, params) => CSHTable(),
     };
   }
 }

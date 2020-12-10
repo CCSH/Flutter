@@ -1,6 +1,3 @@
-//状态模型类
-import 'package:dio/dio.dart';
-
 // 根据返回封装的数据模型
 class DataModel {
   final String result;
@@ -13,12 +10,12 @@ class DataModel {
     this.data,
   });
 
-  //TODO 工厂方法JSON转换模型对象
-  factory DataModel.fromJson(Map<String, dynamic> json) {
+  //字典转模型
+  factory DataModel.fromJson(Map<String, dynamic> map) {
     return DataModel(
-      result: json['result'],
-      msg: json['msg'],
-      data: json['data'],
+      result: map['result'],
+      msg: map['msg'],
+      data: map['data'],
     );
   }
 }

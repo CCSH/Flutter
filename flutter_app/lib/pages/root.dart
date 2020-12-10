@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/ios.dart';
+import 'package:flutter_app/pages/android.dart';
 import 'package:flutter_app/pages/home.dart';
-import 'package:flutter_app/pages/middle.dart';
-import 'package:flutter_app/pages/mine.dart';
 
 class RootPage extends StatefulWidget {
   @override
@@ -16,15 +16,17 @@ class _RootPageState extends State<RootPage> {
   @override
   void initState() {
     super.initState();
+
     pages.addAll([
       HomePage(),
-      MiddlePage(),
-      MinePage(),
+      IOSPage(),
+      AndroidPage(),
     ]);
   }
 
   @override
   Widget build(BuildContext context) {
+    // 脚手架
     return Scaffold(
       // 苹果风格底部导航
       bottomNavigationBar: CupertinoTabBar(
@@ -37,21 +39,21 @@ class _RootPageState extends State<RootPage> {
                 Icons.home,
                 size: 30,
               ),
-              label: '首页',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.add,
-                size: 30,
-              ),
               label: '练习',
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.accessibility_new,
+                Icons.people,
                 size: 30,
               ),
-              label: '我的',
+              label: 'iOS',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.android,
+                size: 30,
+              ),
+              label: '安卓',
             ),
           ],
           currentIndex: _currentIndex,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/widgets/custom_appbar.dart';
+import 'package:flutter_app/widgets/widget_appbar.dart';
 import 'package:flutter_app/util/router.dart';
 import 'package:flutter_app/util/toast_util.dart';
 
@@ -55,7 +55,7 @@ class _CSHCycleState extends State<CSHCycle> {
                     child: MaterialButton(
                       child: Text('跳转'),
                       onPressed: () {
-                        RouterUtil.navigateTo(context, RouteName.cshQr);
+                        RouterUtil.navigateTo(context, RouteName.cshPage);
                       },
                     ),
                   ),

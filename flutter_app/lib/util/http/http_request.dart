@@ -73,7 +73,7 @@ class Request {
                 // toast接口返回登录拦截提示
                 showToast(model.msg);
                 // 跳转到登录页面
-                RouterUtil.navigateTo(_context, RouteName.login);
+                RouterUtil.navigateTo(_context, RouteName.registered);
                 break;
               default:
                 //服务器返回错误
