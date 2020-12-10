@@ -45,7 +45,7 @@ class _CSHListState extends State<CSHColumnList> {
         appBar: CustomAppBar(
           // Here we take the value from the MyHomePage object that was created by
           // the App.build method, and use it to set our appbar title.
-          middleText: '列悬浮',
+          titleText: '列悬浮',
         ),
         body: Stack(
           children: <Widget>[

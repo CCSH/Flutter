@@ -49,7 +49,9 @@ class _RegPage extends State<RegPage> {
   @override
   void initState() {
     super.initState();
-    showToast('参数来了 ===' + widget.param['param']);
+    if (widget.param != null) {
+      showToast('参数来了 ===' + widget.param['param']);
+    }
   }
 
   @override
@@ -603,7 +605,7 @@ class _RegPage extends State<RegPage> {
 
     RouterUtil.pop(
       context,
-      param: '我回来啦！！！',
+      params: '我回来啦！！！',
     );
 
     // RouterUtil.popToRouter(
@@ -624,8 +626,7 @@ class _RegPage extends State<RegPage> {
     actionTouchBegin();
     RouterUtil.navigateTo(
       context,
-      RouteName.root + RouterUtil.setRouterParams({'currentIndex': 2}),
-      transType: TransitionType.inFromLeft,
+      RouteName.root,
     );
   }
 

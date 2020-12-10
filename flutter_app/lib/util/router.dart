@@ -47,14 +47,15 @@ class RouterUtil {
       });
   }
 
-  // MARK 返回上一个页面
-  static Future<bool> pop(BuildContext context, {dynamic param}) {
-    return Navigator.maybePop(context, param);
+  // MARK 返回页面
+  static Future<bool> pop(BuildContext context, {dynamic params}) {
+    //返回上一页
+    return Navigator.maybePop(context, params);
   }
 
-  // MARK 返回到已经存在指定页面
-  static popToRouter(BuildContext context, String url) {
-    Navigator.popUntil(context, ModalRoute.withName(url));
+  // MARK 是否可以返回
+  static bool canPop(BuildContext context) {
+    return Navigator.canPop(context);
   }
 
   // MARK 处理入参

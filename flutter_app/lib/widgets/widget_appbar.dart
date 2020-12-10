@@ -11,12 +11,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   CustomAppBar({
     Key key,
     this.height,
-    this.defaultLeft = true,
+    this.defaultLeft = false,
     this.opacity = 1.0,
     this.brightness = SystemUiOverlayStyle.light,
     this.sapce = 5.0,
-    this.middleText = '',
-    this.middle,
+    this.titleText = '',
+    this.title,
     this.backgroundColor,
     this.background,
     this.actionsMaxW,
@@ -29,26 +29,26 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   //状态栏文字样式
   SystemUiOverlayStyle brightness;
   //高度
-  final double height;
+  double height;
   //默认左侧按钮
-  final bool defaultLeft;
+  bool defaultLeft;
   //屏幕两边空隙
-  final double sapce;
+  double sapce;
   //透明度
-  final double opacity;
-  //标题文字
-  final String middleText;
+  double opacity;
   //中间视图
-  final Widget middle;
-  //背景颜色
-  final Color backgroundColor;
+  Widget title;
+  //中间标题
+  String titleText;
   //背景视图
-  final Widget background;
+  Widget background;
+  //背景颜色
+  Color backgroundColor;
   //默认 _actionW * count 如果超过需要设置
-  final double actionsMaxW;
+  double actionsMaxW;
   //按钮集合
-  final List<Widget> leftActions;
-  final List<Widget> rightActions;
+  List<Widget> leftActions;
+  List<Widget> rightActions;
 
   @override
   Widget build(BuildContext context) {
@@ -100,12 +100,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     }
 
     //中间组件
-    Widget _middle = this.middle;
-    if (null == _middle) {
-      _middle = Container(
+    Widget _title = this.title;
+    if (null == _title) {
+      _title = Container(
         alignment: Alignment.center,
         child: Text(
-          middleText,
+          titleText,
           style: TextStyle(
             color: Colors.white,
             fontSize: 18,
@@ -148,7 +148,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
                   //中间视图
                   Expanded(
-                    child: _middle,
+                    child: _title,
                   ),
 
                   //右边
@@ -181,7 +181,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return BackButton(
       color: Colors.white,
       onPressed: () {
-        RouterUtil.pop(context);
+        RouterUtil.pop(
+          context,
+          url: RouteName.registered,
+        );
       },
     );
   }

@@ -16,8 +16,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        defaultLeft: false,
-        middleText: '陈胜辉',
+        defaultLeft: RouterUtil.canPop(context),
+        titleText: '自定义导航栏',
       ),
       body: SingleChildScrollView(
         child: Container(

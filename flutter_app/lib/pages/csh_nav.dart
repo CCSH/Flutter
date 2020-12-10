@@ -70,7 +70,7 @@ class _CSHNavState extends State<CSHNav> {
     return CustomAppBar(
       opacity: opacity,
 
-      middleText: '我是导航栏',
+      titleText: '我是导航栏',
       // height: CommonData.navH,
       // middle: Container(
       //   alignment: Alignment.center,

@@ -40,7 +40,7 @@ class _CSHCycleState extends State<CSHCycle> {
     isAppear = false;
     return Scaffold(
       appBar: CustomAppBar(
-        middleText: '界面周期',
+        titleText: '界面周期',
       ),
       body: WillPopScope(
           onWillPop: () {
