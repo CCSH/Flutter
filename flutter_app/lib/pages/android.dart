@@ -9,9 +9,10 @@ class AndroidPage extends StatefulWidget {
 class _AndroidPageState extends State<AndroidPage> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: '安卓',
-      home: Container(),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('安卓'),
+      ),
     );
   }
 }

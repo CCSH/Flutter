@@ -5,15 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app/util/helper_data.dart';
 import 'package:flutter_app/util/router.dart';
-// import 'package:flutter_app/util/routerUtil.dart';
 
-/// MARK:自定义导航栏
-//  @LastEditors: 陈胜辉
-//  @Version: 版本号, YYYY-MM-DD
-//  @param {type}
-//  @return:
-//  @Deprecated: 否
-//  备注
+// MARK 自定义导航栏
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   CustomAppBar({
     Key key,

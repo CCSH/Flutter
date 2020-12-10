@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_app/head.dart';
 
 // ignore: camel_case_types
 class IOSPage extends StatefulWidget {
@@ -9,8 +10,11 @@ class IOSPage extends StatefulWidget {
 class _IOSPageState extends State<IOSPage> {
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp(
-      home: Container(),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('ios'),
+      ),
+      body: Container(),
     );
   }
 }

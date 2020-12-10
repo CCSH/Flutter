@@ -24,7 +24,7 @@ class Main extends StatelessWidget {
       //debug标签
       debugShowCheckedModeBanner: false,
       title: 'Flutter APP',
-      initialRoute: RouteName.root,
+      // initialRoute: Navigator.defaultRouteName,
       onGenerateRoute: FluroRouter.appRouter.generator,
       // 主题
       theme: ThemeData(
