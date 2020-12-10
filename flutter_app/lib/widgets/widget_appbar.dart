@@ -183,7 +183,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       onPressed: () {
         RouterUtil.pop(
           context,
-          url: RouteName.registered,
         );
       },
     );

@@ -129,7 +129,11 @@ class _RegPage extends State<RegPage> {
         brightness: Brightness.dark,
         //返回按钮
         leading: GestureDetector(
-          child: Image.asset(Tool.getImage('nav_back')),
+          child: Icon(
+            Icons.keyboard_arrow_left,
+            color: Colors.black,
+            size: 30,
+          ),
           onTap: actionBackPage,
         ),
         //右侧按钮
