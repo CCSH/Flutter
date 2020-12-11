@@ -11,7 +11,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   CustomAppBar({
     Key key,
     this.height,
-    this.defaultLeft = false,
     this.opacity = 1.0,
     this.brightness = SystemUiOverlayStyle.light,
     this.sapce = 5.0,
@@ -30,8 +29,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   SystemUiOverlayStyle brightness;
   //高度
   double height;
-  //默认左侧按钮
-  bool defaultLeft;
   //屏幕两边空隙
   double sapce;
   //透明度
@@ -86,7 +83,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     //左侧组件集合
     List<Widget> _leftActions = this.leftActions;
     //默认左侧返回按钮
-    if (null == _leftActions && defaultLeft) {
+    if (null == _leftActions && RouterUtil.canPop(context)) {
       _leftActions = [_getNavBack(context)];
     }
 

@@ -128,13 +128,9 @@ class _RegPage extends State<RegPage> {
         //状态栏颜色
         brightness: Brightness.dark,
         //返回按钮
-        leading: GestureDetector(
-          child: Icon(
-            Icons.keyboard_arrow_left,
-            color: Colors.black,
-            size: 40,
-          ),
-          onTap: actionBackPage,
+        leading: BackButton(
+          color: Colors.black,
+          onPressed: actionBackPage,
         ),
         //右侧按钮
         actions: <Widget>[
