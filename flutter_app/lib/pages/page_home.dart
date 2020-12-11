@@ -44,9 +44,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 onPressed: () {
-                  RouterUtil.navigateTo(
+                  RouterUtil.push(
                     context,
-                    RouteName.registered,
+                    RouteName.reg,
                     params: {
                       'param': '1234',
                       'title': '标题',
@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
                 textColor: Colors.white,
                 child: Text('导航栏'),
                 onPressed: () {
-                  RouterUtil.navigateTo(context, RouteName.cshNav);
+                  RouterUtil.push(context, RouteName.nav);
                 },
               ),
               MaterialButton(
@@ -72,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                 textColor: Colors.white,
                 child: Text('调用原生view'),
                 onPressed: () {
-                  RouterUtil.navigateTo(context, RouteName.cshLayout);
+                  RouterUtil.push(context, RouteName.layout);
                 },
               ),
               MaterialButton(
@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
                 textColor: Colors.white,
                 child: Text('动画'),
                 onPressed: () {
-                  RouterUtil.navigateTo(context, RouteName.cshAnimated);
+                  RouterUtil.push(context, RouteName.animated);
                 },
               ),
               MaterialButton(
@@ -88,7 +88,7 @@ class _HomePageState extends State<HomePage> {
                 textColor: Colors.white,
                 child: Text('列悬浮'),
                 onPressed: () {
-                  RouterUtil.navigateTo(context, RouteName.cshColumnList);
+                  RouterUtil.push(context, RouteName.columnList);
                 },
               ),
               MaterialButton(
@@ -96,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                 textColor: Colors.white,
                 child: Text('行悬浮'),
                 onPressed: () {
-                  RouterUtil.navigateTo(context, RouteName.cshRowList);
+                  RouterUtil.push(context, RouteName.rowList);
                 },
               ),
               MaterialButton(
@@ -104,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                 textColor: Colors.white,
                 child: Text('自定义标签页'),
                 onPressed: () {
-                  RouterUtil.navigateTo(context, RouteName.cshTable);
+                  RouterUtil.push(context, RouteName.table);
                 },
               ),
               MaterialButton(
@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                 textColor: Colors.white,
                 child: Text('分页'),
                 onPressed: () {
-                  RouterUtil.navigateTo(context, RouteName.cshPaging);
+                  RouterUtil.push(context, RouteName.paging);
                 },
               ),
               MaterialButton(
@@ -120,7 +120,7 @@ class _HomePageState extends State<HomePage> {
                 textColor: Colors.white,
                 child: Text('界面周期'),
                 onPressed: () {
-                  RouterUtil.navigateTo(context, RouteName.cshCycle);
+                  RouterUtil.push(context, RouteName.cycle);
                 },
               ),
               MaterialButton(
@@ -141,7 +141,15 @@ class _HomePageState extends State<HomePage> {
                 textColor: Colors.white,
                 child: Text('加载'),
                 onPressed: () {
-                  RouterUtil.navigateTo(context, RouteName.load);
+                  RouterUtil.push(context, RouteName.load);
+                },
+              ),
+              MaterialButton(
+                color: Colors.blue,
+                textColor: Colors.white,
+                child: Text('存储'),
+                onPressed: () {
+                  RouterUtil.push(context, RouteName.storage);
                 },
               ),
             ],

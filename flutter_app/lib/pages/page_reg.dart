@@ -607,11 +607,6 @@ class _RegPage extends State<RegPage> {
       context,
       params: '我回来啦！！！',
     );
-
-    // RouterUtil.popToRouter(
-    //   context,
-    //   '/',
-    // );
   }
 
   /* MARK:进入登录页面
@@ -624,9 +619,9 @@ class _RegPage extends State<RegPage> {
   void actionGotoRegPage() {
     print('进入登录页面');
     actionTouchBegin();
-    RouterUtil.navigateTo(
+    RouterUtil.push(
       context,
-      RouteName.root,
+      RouteName.rowList,
     );
   }
 

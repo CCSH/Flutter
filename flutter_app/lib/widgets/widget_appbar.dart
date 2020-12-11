@@ -178,9 +178,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return BackButton(
       color: Colors.white,
       onPressed: () {
-        RouterUtil.pop(
-          context,
-        );
+        RouterUtil.pop(context);
       },
     );
   }

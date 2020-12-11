@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/pages/ios.dart';
-import 'package:flutter_app/pages/android.dart';
-import 'package:flutter_app/pages/home.dart';
+import 'package:flutter_app/pages/page_ios.dart';
+import 'package:flutter_app/pages/page_android.dart';
+import 'package:flutter_app/pages/page_home.dart';
 
 class RootPage extends StatefulWidget {
   @override

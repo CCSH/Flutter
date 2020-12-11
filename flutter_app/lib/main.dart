@@ -15,12 +15,17 @@ void main() {
 }
 
 class Main extends StatelessWidget {
+  //页面监听
+  static final RouteObserver<PageRoute> routeObserver =
+      RouteObserver<PageRoute>();
   @override
   Widget build(BuildContext context) {
     // 配置路由
     Routes.configRoutes();
     // 全局设置
     return MaterialApp(
+      //页面监听
+      navigatorObservers: [routeObserver],
       //debug标签
       debugShowCheckedModeBanner: false,
       title: 'Flutter APP',
