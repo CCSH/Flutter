@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
               MaterialButton(
                 color: Colors.blue,
                 textColor: Colors.white,
-                child: Text('调用原生view'),
+                child: Text('布局'),
                 onPressed: () {
                   RouterUtil.push(context, RouteName.layout);
                 },

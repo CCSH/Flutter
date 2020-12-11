@@ -5,6 +5,7 @@ import 'package:flutter_app/pages/page_android.dart';
 import 'package:flutter_app/pages/page_animated.dart';
 import 'package:flutter_app/pages/page_column_list.dart';
 import 'package:flutter_app/pages/page_cycle.dart';
+import 'package:flutter_app/pages/page_layout.dart';
 import 'package:flutter_app/pages/page_nav.dart';
 import 'package:flutter_app/pages/page_paging.dart';
 import 'package:flutter_app/pages/page_row_list.dart';
@@ -180,6 +181,7 @@ class Routes {
       RouteName.load: (conttext, params) => MyStatefulWidget(),
       RouteName.table: (conttext, params) => CSHTable(),
       RouteName.storage: (conttext, params) => CounterWidget(),
+      RouteName.layout: (context, param) => CSHLayout(),
     };
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/main.dart';
 import 'package:flutter_app/widgets/widget_appbar.dart';
 import 'package:flutter_app/util/router.dart';
 import 'package:flutter_app/util/toast_util.dart';
