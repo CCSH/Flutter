@@ -132,7 +132,7 @@ class _RegPage extends State<RegPage> {
           child: Icon(
             Icons.keyboard_arrow_left,
             color: Colors.black,
-            size: 30,
+            size: 40,
           ),
           onTap: actionBackPage,
         ),
